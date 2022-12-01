@@ -1,0 +1,24 @@
+name: CI
+
+on: ["push", "pull_request", "workflow_dispatch"]
+
+jobs:
+  test:
+    name: "${{ matrix.vim_type }} ${{ matrix.version }} on ${{ matrix.os }}"
+    strategy:
+      matrix:
+        vim_type: ["Vim"]
+        version: ["head"]
+        os: ["ubuntu-22.04"]
+    runs-on: "${{ matrix.os }}"
+    steps:
+      - uses: "actions/checkout@v3"
+      - name: "Setup Vim"
+        id: "vim"
+        uses: "thinca/action-setup-vim@v1"
+        with:
+          vim_version: "${{ matrix.version }}"
+          vim_type: "${{ matrix.vim_type }}"
+      - name: "Show Vim version"
+        run: |
+          ${{ steps.vim.outputs.executable }} --version
