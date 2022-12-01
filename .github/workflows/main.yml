@@ -10,6 +10,10 @@ jobs:
         vim_type: ["Vim", "Neovim"]
         version: ["head", "stable"]
         os: ["ubuntu-22.04"]
+        include:
+          - vim_type: "Vim"
+            version: "stable"
+            vim_version: "v8.2.0000"
     runs-on: "${{ matrix.os }}"
     steps:
       - name: "Install libfuse2"
@@ -21,8 +25,9 @@ jobs:
         id: "vim"
         uses: "thinca/action-setup-vim@v1"
         with:
-          vim_version: "${{ matrix.version }}"
+          vim_version: "${{ matrix.vim_version || matrix.version }}"
           vim_type: "${{ matrix.vim_type }}"
       - name: "Show Vim version"
         run: |
           ${{ steps.vim.outputs.executable }} --version
+
