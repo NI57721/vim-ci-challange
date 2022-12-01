@@ -7,8 +7,8 @@ jobs:
     name: "${{ matrix.vim_type }} ${{ matrix.version }} on ${{ matrix.os }}"
     strategy:
       matrix:
-        vim_type: ["Vim"]
-        version: ["head"]
+        vim_type: ["Vim", "Neovim"]
+        version: ["head", "stable"]
         os: ["ubuntu-22.04"]
     runs-on: "${{ matrix.os }}"
     steps:
