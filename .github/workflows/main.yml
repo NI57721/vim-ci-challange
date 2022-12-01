@@ -9,7 +9,7 @@ jobs:
       matrix:
         vim_type: ["Vim", "Neovim"]
         version: ["head", "stable"]
-        os: ["ubuntu-22.04"]
+        os: ["ubuntu-20.04"]
         include:
           - vim_type: "Vim"
             version: "stable"
