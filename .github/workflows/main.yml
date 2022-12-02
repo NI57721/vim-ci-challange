@@ -16,13 +16,6 @@ jobs:
             vim_version: "v8.2.5172"
     runs-on: "${{ matrix.os }}"
     steps:
-      - name: "Install libfuse2 and upgrade libsqlite3-dev"
-        run: |
-          sudo apt-get update
-          sudo apt-get -y install libfuse2
-          # sudo apt-get -y remove libsqlite3-0 libsqlite3-dev
-          # apt-cache search libsqlite
-          # sudo apt-get -y upgrade libsqlite3-0 | echo -e "Error on upgrading libsqlite3-0"
       - uses: "actions/checkout@v3"
       - name: "Setup Vim"
         id: "vim"
