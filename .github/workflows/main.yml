@@ -20,7 +20,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get -y install libfuse2
-          sudo apt-get -y upgrade
+          apt search libsqlite
           # apt-cache search libsqlite
           # sudo apt-get -y upgrade libsqlite3-0 | echo -e "Error on upgrading libsqlite3-0"
       - uses: "actions/checkout@v3"
