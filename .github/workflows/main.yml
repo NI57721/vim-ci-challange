@@ -9,17 +9,17 @@ jobs:
       matrix:
         vim_type: ["Vim", "Neovim"]
         version: ["head", "stable"]
-        os: ["ubuntu-20.04"]
+        os: ["ubuntu-22.04"]
         include:
           - vim_type: "Vim"
             version: "stable"
             vim_version: "v8.2.0000"
     runs-on: "${{ matrix.os }}"
     steps:
-      - name: "Install libfuse2"
+      - name: "Install libfuse2 and libgio2.0-cil-dev"
         run: |
           sudo apt-get update
-          sudo apt-get -y install libfuse2
+          sudo apt-get -y install libfuse2 libgio2.0-cil-dev
       - uses: "actions/checkout@v3"
       - name: "Setup Vim"
         id: "vim"
