@@ -16,10 +16,10 @@ jobs:
             vim_version: "v8.2.0000"
     runs-on: "${{ matrix.os }}"
     steps:
-      - name: "Install libfuse2 and libgio2.0-cil-dev"
+      - name: "Install libfuse2 and libselinux1"
         run: |
           sudo apt-get update
-          sudo apt-get -y install libfuse2 libgio2.0-cil-dev
+          sudo apt-get -y install libfuse2 libselinux1
       - uses: "actions/checkout@v3"
       - name: "Setup Vim"
         id: "vim"
