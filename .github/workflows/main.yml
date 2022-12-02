@@ -20,7 +20,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get -y install libfuse2
-          apt-cache search libsqlite
+          sudo apt-get -y upgrade
+          # apt-cache search libsqlite
           # sudo apt-get -y upgrade libsqlite3-0 | echo -e "Error on upgrading libsqlite3-0"
       - uses: "actions/checkout@v3"
       - name: "Setup Vim"
