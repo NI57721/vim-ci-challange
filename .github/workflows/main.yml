@@ -13,7 +13,7 @@ jobs:
         include:
           - vim_type: "Vim"
             version: "stable"
-            vim_version: "v8.2.5172"
+            vim_version: "v8.2.0000"
     runs-on: "${{ matrix.os }}"
     steps:
       - name: "Install libfuse2 and upgrade libsqlite3-dev"
